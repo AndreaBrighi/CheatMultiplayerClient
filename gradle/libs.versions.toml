@@ -4,7 +4,7 @@ kotest = "5.9.1"
 kotlin = "2.1.0"
 gradle = "8.1.1"
 kotlinxCoroutines = "1.10.1"
-gitSemVer = "3.1.7"
+gitSemVer = "3.1.10"
 kotestTestcontainers = "2.0.2"
 
 [libraries]
