@@ -30,6 +30,7 @@ subprojects {
     }
 
     multiJvm {
-        maximumSupportedJvmVersion.set(latestJavaSupportedByGradle)
+        jvmVersionForCompilation = oldestJavaSupportedByGradle
+        maximumSupportedJvmVersion = latestJavaSupportedByGradle
     }
 }
