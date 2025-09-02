@@ -25,6 +25,12 @@ buildscript {
 allprojects {
     group = "it.unibo.ds"
     version = "0.1.0"
+
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
 }
 
 subprojects {
