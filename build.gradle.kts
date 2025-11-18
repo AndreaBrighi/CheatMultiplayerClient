@@ -36,6 +36,7 @@ allprojects {
 subprojects {
     apply(plugin = "kotlin")
     apply(plugin = "java")
+    apply(plugin = "org.danilopianini.multi-jvm-test-plugin")
     apply(plugin = "org.jetbrains.kotlinx.kover")
 
     tasks.test {
