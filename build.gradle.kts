@@ -1,4 +1,7 @@
+import io.github.andreabrighi.gradle.gitsemver.conventionalcommit.ConventionalCommit
+
 plugins {
+    alias(libs.plugins.gitSemVer)
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.qa)
     alias(libs.plugins.taskTree)
@@ -6,9 +9,27 @@ plugins {
     alias(libs.plugins.kover)
 }
 
+gitSemVer {
+    maxVersionLength.set(20)
+    buildMetadataSeparator.set("-")
+    commitNameBasedUpdateStrategy(ConventionalCommit::semanticVersionUpdate)
+}
+
+buildscript {
+    dependencies {
+        classpath(libs.convetional)
+    }
+}
+
 allprojects {
     group = "it.unibo.ds"
     version = "0.1.0"
+
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
 }
 
 subprojects {
@@ -18,5 +39,10 @@ subprojects {
 
     tasks.test {
         useJUnitPlatform()
+    }
+
+    multiJvm {
+        jvmVersionForCompilation = oldestJavaSupportedByGradle
+        maximumSupportedJvmVersion = latestJavaSupportedByGradle
     }
 }

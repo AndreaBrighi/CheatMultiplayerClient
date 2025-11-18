@@ -9,22 +9,15 @@ pluginManagement {
 }
 
 plugins {
-    id("com.gradle.enterprise") version "3.14.1"
-    id("org.danilopianini.gradle-pre-commit-git-hooks") version "1.1.10"
+    id("com.gradle.develocity") version "4.2.2"
+    id("org.danilopianini.gradle-pre-commit-git-hooks") version "2.1.5"
 }
 
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-gradleEnterprise {
+develocity {
     buildScan {
-        termsOfServiceUrl = "https://gradle.com/terms-of-service"
-        termsOfServiceAgree = "yes"
+        termsOfUseUrl = "https://gradle.com/help/legal-terms-of-use"
+        termsOfUseAgree = "yes"
+        publishing.onlyIf { it.buildResult.failures.isNotEmpty() }
     }
 }
 
