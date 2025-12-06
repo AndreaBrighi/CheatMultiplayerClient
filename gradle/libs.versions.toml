@@ -1,5 +1,5 @@
 [versions]
-mockk = "1.14.6"
+mockk = "1.14.7"
 kotest = "6.0.5"
 kotlin = "2.2.21"
 gradle = "8.1.1"
