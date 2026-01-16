@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.qa)
     alias(libs.plugins.taskTree)
     alias(libs.plugins.dokka)
-    jacoco
+    alias(libs.plugins.kover)
     alias(libs.plugins.multiJvmTesting)
 }
 
@@ -37,14 +37,7 @@ subprojects {
     apply(plugin = "kotlin")
     apply(plugin = "java")
     apply(plugin = "org.danilopianini.multi-jvm-test-plugin")
-    apply(plugin = "jacoco")
-
-    tasks.jacocoTestReport {
-        dependsOn(tasks.test)
-        reports {
-            xml.required.set(true)
-        }
-    }
+    apply(plugin = "org.jetbrains.kotlinx.kover")
 
     tasks.test {
         useJUnitPlatform()

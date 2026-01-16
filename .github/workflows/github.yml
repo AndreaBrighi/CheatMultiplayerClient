@@ -42,7 +42,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Unit test with Gradle
-        run: ./gradlew jacocoTestReport
+        run: ./gradlew koverXmlReport
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
@@ -53,9 +53,15 @@ jobs:
             **/test-results/**/*.trx
             **/test-results/**/*.json
       - name: Add coverage to PR
+        id: kover
+        uses: mi-kas/kover-report@v1
         if: always()
-        uses: madrapps/jacoco-report@v1.7.2
         with:
-          paths: |
-            ${{ github.workspace }}/**/build/reports/jacoco/**/*.xml
-          token: ${{github.token}}
+          path: |
+            ${{ github.workspace }}/model/build/reports/kover/report.xml
+          token: ${{secrets.token}}
+          title: Code Coverage
+          update-comment: false
+          min-coverage-overall: 80
+          min-coverage-changed-files: 80
+          coverage-counter-type: LINE

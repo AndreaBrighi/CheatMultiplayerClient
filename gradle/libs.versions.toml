@@ -37,4 +37,5 @@ dokka = "org.jetbrains.dokka:2.1.0"
 kotlin-qa = { id = "org.danilopianini.gradle-kotlin-qa", version = "0.100.0" }
 taskTree = { id = "com.dorongold.task-tree", version = "4.0.1" }
 gitSemVer = { id = "org.danilopianini.git-sensitive-semantic-versioning-gradle-plugin", version.ref = "gitSemVer" }
+kover = { id = "org.jetbrains.kotlinx.kover", version = "0.7.3" }
 multiJvmTesting = { id = "org.danilopianini.multi-jvm-test-plugin", version = "4.3.2" }
