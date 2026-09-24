@@ -9,7 +9,7 @@ pluginManagement {
 }
 
 plugins {
-    id("com.gradle.develocity") version "4.3"
+    id("com.gradle.develocity") version "4.6.0"
     id("org.danilopianini.gradle-pre-commit-git-hooks") version "2.1.6"
 }
 
